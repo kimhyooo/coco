@@ -69,16 +69,13 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onPageSelected(int position) {
-
-            }
+            public void onPageSelected(int position) { }
 
             @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
+            public void onPageScrollStateChanged(int state) { }
         });
     }
+
     //코로나란 버튼
     public void corona_btn(View view){
         Intent intent = new Intent(MainActivity.this, activity_what_corona.class);
@@ -88,6 +85,13 @@ public class MainActivity extends AppCompatActivity {
     //웹페이지 띄우기
     public void page_btn(View view){
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://ncov.mohw.go.kr/"));
+        startActivity(intent);
+    }
+
+    public void call_btn(View view){
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_DIAL);
+        intent.setData(Uri.parse("tel:1339"));
         startActivity(intent);
     }
 }
