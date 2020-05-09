@@ -4,10 +4,12 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 
 public class activity_self extends AppCompatActivity {
     RadioButton qestion1_choice2, qestion2_choice2, qestion3_choice2, qestion4_choice2, qestion5_choice2, qestion6_choice2, qestion7_choice2;
+    ImageView img;  //다이얼에 나오는 이미지
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,8 +17,9 @@ public class activity_self extends AppCompatActivity {
         setContentView(R.layout.activity_self);
     }
 
-    //결과보기 버튼 누르면
+//결과보기 버튼 누르면
     public void submit_answers(View view){
+
         int answer1_score;
         int answer2_score;
         int answer3_score;
@@ -93,22 +96,26 @@ public class activity_self extends AppCompatActivity {
         final_score = answer1_score + answer2_score + answer3_score + answer4_score + answer5_score +
                 answer6_score + answer7_score;
     //다이얼
-        AlertDialog.Builder dig = new AlertDialog.Builder(activity_self.this);
-        //View digView = View.inflate(activity_self.this,R.layout.)
+
+        AlertDialog.Builder dlg = new AlertDialog.Builder(activity_self.this);
+        View dlgView = View.inflate(activity_self.this, R.layout.activity_dialog,null);
+        img = (ImageView)dlgView.findViewById(R.id.imageView1);
+        dlg.setView(dlgView);
+
         if (final_score>=5) {
-            dig.setTitle("정상");
-            dig.setMessage("main method");
-            dig.show();
+            dlg.setTitle("당신의 진단 결과 ");
+            img.setImageResource(R.drawable.good);
+            dlg.show();
         }
         else if (final_score>=3){
-            dig.setTitle("주의");
-            dig.setMessage("main method");
-            dig.show();
+            dlg.setTitle("당신의 진단 결과");
+            img.setImageResource(R.drawable.soso);
+            dlg.show();
         }
         else {
-            dig.setTitle("병원");
-            dig.setMessage("main method");
-            dig.show();
+            dlg.setTitle("당신의 진단 결과");
+            img.setImageResource(R.drawable.bad);
+            dlg.show();
         }
     }
 }
