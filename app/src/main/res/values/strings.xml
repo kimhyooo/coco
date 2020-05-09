@@ -3,4 +3,15 @@
     <string name="road">현재까지는 침방울, 접촉을 통한 전파로 알려짐\n\n기침이나 재채기를 할 때 전파 등\n\n바이러스에 오염된 물건을 만진 뒤 눈, 코, 입을 만짐</string>
     <string name="symptom">발열, 권태감, 기침, 호흡곤란 및 폐렴 등 경증에서\n중증까지 다양한 호흡기감염증이 나타남\n\n그 외 가래, 인후통, 두통, 객혈과 오심, 설사 등도 나타남</string>
     <string name="prevention">올바른 손씻기,  기침 예절준수 </string>
+
+    //자가진단
+    <string name="self_1">1. 37.5도 이상의 발열증상이 있었나요?</string>
+    <string name="self_2">2. 잦은 기침, 인후통, 호흡곤란이 있나요?</string>
+    <string name="self_3">3. 최근 15일 이내 해외에서 입국하셨나요?</string>
+    <string name="self_4">4. 일반적인 감기증상이 있나요?</string>
+    <string name="self_5">5. 가족들이 최근 고열 또는 감기증상이 있었나요?</string>
+    <string name="self_6">6. 가족/지인 중 코로나 관련 병원을 방문한적 있나요?</string>
+    <string name="self_7">7. 코로나 대량 집회 또는 모임에 참가한적 있나요?</string>
+    <string name="yes">예</string>
+    <string name="no">아니요</string>
 </resources>

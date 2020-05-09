@@ -84,7 +84,8 @@
         app:layout_constraintEnd_toStartOf="@+id/page_btn"
         app:layout_constraintStart_toEndOf="@+id/corona_btn"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout"
-        app:srcCompat="@drawable/self_btn" />
+        app:srcCompat="@drawable/self_btn"
+        android:onClick="self_btn"/>
 
     <ImageButton
         android:id="@+id/page_btn"

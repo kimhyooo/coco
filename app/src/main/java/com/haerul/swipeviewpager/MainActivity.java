@@ -88,6 +88,13 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    //자가진단 페이지로
+    public void self_btn(View view){
+        Intent intent = new Intent(MainActivity.this, activity_self.class);
+        startActivity(intent);
+    }
+
+    //다이얼 전화걸기
     public void call_btn(View view){
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_DIAL);
