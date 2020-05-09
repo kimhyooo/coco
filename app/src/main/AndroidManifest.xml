@@ -20,7 +20,8 @@
         </activity>
         <activity android:name=".DetailActivity" />
         <activity android:name=".activity_what_corona" />
-        <activity android:name=".activity_self"></activity>
+        <activity android:name=".activity_self" />
+        <activity android:name=".activity_dialog"></activity>
     </application>
 
 </manifest>
