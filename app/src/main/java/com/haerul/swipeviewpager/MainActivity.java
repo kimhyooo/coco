@@ -2,6 +2,7 @@ package com.haerul.swipeviewpager;
 
 import android.animation.ArgbEvaluator;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -78,9 +79,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
+    //코로나란 버튼
     public void corona_btn(View view){
         Intent intent = new Intent(MainActivity.this, activity_what_corona.class);
+        startActivity(intent);
+    }
+
+    //웹페이지 띄우기
+    public void page_btn(View view){
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://ncov.mohw.go.kr/"));
         startActivity(intent);
     }
 }
