@@ -8,10 +8,15 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.VideoView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -21,11 +26,34 @@ public class MainActivity extends AppCompatActivity {
     List<Model> models;
     Integer[] colors = null;
     ArgbEvaluator argbEvaluator = new ArgbEvaluator();
+    TextView date_text, mask_text; //mask_text는 오늘 날짜~~입니다 알려주는
+    EditText edit_text;
+    Button number_btn;
+    ImageView mask_image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //날짜
+        date_text = findViewById(R.id.date_text);
+        SimpleDateFormat format2 = new SimpleDateFormat ( "yyyy년 MM월dd일");
+        Date time = new Date();
+        String time2 = format2.format(time);
+        date_text.setText(time2);
+
+        //날짜 --- 오늘은 끝자리~~~이다.
+        SimpleDateFormat format3 = new SimpleDateFormat("EE");
+        mask_text = findViewById(R.id.mask_text);
+        Date time3 = new Date();
+        String time33 = format3.format(time3);
+        if(time33.equals("월")) mask_text.setText("1, 6");
+        else if(time33.equals("화")) mask_text.setText("2, 7");
+        else if(time33.equals("수")) mask_text.setText("3, 8");
+        else if(time33.equals("목")) mask_text.setText("4, 9");
+        else if(time33.equals("금")) mask_text.setText("5, 0");
+
 
         //스플래쉬
         Intent intent = new Intent(this, activity_splash.class);
@@ -105,4 +133,25 @@ public class MainActivity extends AppCompatActivity {
         intent.setData(Uri.parse("tel:1339"));
         startActivity(intent);
     }
+
+    // 사용자 년도 받기
+    public void number_btn(View view){
+        /*
+        edit_text = findViewById(R.id.edit_text); //edit값 가져오기
+        number_btn = findViewById(R.id.number_btn); // 입력완료
+        mask_image = findViewById(R.id.mask_image);//마스크 이미지
+
+        String str = edit_text.getText().toString(); //입력된 값 가져오기
+        int result = Integer.parseInt(str);
+        result = result/1000;
+        result = result/100;
+        result = result/10;
+        result = result/1;
+
+        if(result==1 || result==6){
+            mask_image.setVisibility(View.VISIBLE);
+        }
+        */
+    }
+
 }
