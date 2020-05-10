@@ -27,6 +27,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //스플래쉬
+        Intent intent = new Intent(this, activity_splash.class);
+        startActivity(intent);
+
         models = new ArrayList<>();
         models.add(new Model(R.drawable.post_1, "예방수칙", "코로나-19를 예방하려면 어떻게 해야할까?"));
         models.add(new Model(R.drawable.post_2, "Sticker", "Sticker is a type of label: a piece of printed paper, plastic, vinyl, or other material with pressure sensitive adhesive on one side"));
