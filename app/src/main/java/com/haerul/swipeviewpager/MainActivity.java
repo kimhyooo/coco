@@ -31,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
     Button number_btn;
     ImageView mask_image;
 
+    int a=0, b=0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,13 +49,46 @@ public class MainActivity extends AppCompatActivity {
         SimpleDateFormat format3 = new SimpleDateFormat("EE");
         mask_text = findViewById(R.id.mask_text);
         Date time3 = new Date();
-        String time33 = format3.format(time3);
-        if(time33.equals("월")) mask_text.setText("1, 6");
-        else if(time33.equals("화")) mask_text.setText("2, 7");
-        else if(time33.equals("수")) mask_text.setText("3, 8");
-        else if(time33.equals("목")) mask_text.setText("4, 9");
-        else if(time33.equals("금")) mask_text.setText("5, 0");
+        final String time33 = format3.format(time3);
+        if(time33.equals("월")) {
+            mask_text.setText("1, 6");
+            this.a = 1; this.b = 6;
+        }
+        else if(time33.equals("화")) {
+            mask_text.setText("2, 7");
+            this.a = 2; this.b = 7;
+        }
+        else if(time33.equals("수")) {
+            mask_text.setText("3, 8");
+            this.a = 3; this.b = 8;
+        }
+        else if(time33.equals("목")) {
+            mask_text.setText("4, 9");
+            this.a = 4; this.b = 9;
+        }
+        else if(time33.equals("금")) {
+            mask_text.setText("5, 0");
+            this.a = 5; this.b = 0;
+        }
 
+        //사용자 년도 입력받고 사진 나오는거
+        edit_text = findViewById(R.id.edit_text); //edit값 가져오기
+        mask_image = findViewById(R.id.mask_image);//마스크 이미지
+        number_btn = findViewById(R.id.number_btn);
+        number_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String str = edit_text.getText().toString(); //입력된 값 가져오기
+                int result = Integer.parseInt(str);
+                result = result%1000;
+                result = result%100;
+                result = result%10;
+                if(result==a||result==b){
+                    mask_image.setVisibility(View.VISIBLE);
+                }
+                else mask_image.setVisibility(View.INVISIBLE);
+            }
+        });
 
         //스플래쉬
         Intent intent = new Intent(this, activity_splash.class);
@@ -133,25 +168,4 @@ public class MainActivity extends AppCompatActivity {
         intent.setData(Uri.parse("tel:1339"));
         startActivity(intent);
     }
-
-    // 사용자 년도 받기
-    public void number_btn(View view){
-        /*
-        edit_text = findViewById(R.id.edit_text); //edit값 가져오기
-        number_btn = findViewById(R.id.number_btn); // 입력완료
-        mask_image = findViewById(R.id.mask_image);//마스크 이미지
-
-        String str = edit_text.getText().toString(); //입력된 값 가져오기
-        int result = Integer.parseInt(str);
-        result = result/1000;
-        result = result/100;
-        result = result/10;
-        result = result/1;
-
-        if(result==1 || result==6){
-            mask_image.setVisibility(View.VISIBLE);
-        }
-        */
-    }
-
 }
