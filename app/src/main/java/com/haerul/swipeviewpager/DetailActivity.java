@@ -23,6 +23,8 @@ public class DetailActivity extends AppCompatActivity {
         TextView textView = findViewById(R.id.textView);
         poster = findViewById(R.id.poster);
         ImageView post_2 = findViewById(R.id.post_2);
+        ImageView post3 = findViewById(R.id.post3);
+        ImageView post4 = findViewById(R.id.post4);
 
         //비디오
         VideoView video_beha = findViewById(R.id.video_beha);
@@ -45,6 +47,7 @@ public class DetailActivity extends AppCompatActivity {
         }
 
         if(count==2){
+            post3.setVisibility(View.VISIBLE);
             Intent intent = new Intent(DetailActivity.this, activity_self.class);
             startActivity(intent);
         }
@@ -52,6 +55,7 @@ public class DetailActivity extends AppCompatActivity {
         if(count==3){
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://ncov.mohw.go.kr/"));
             startActivity(intent);
+            post4.setVisibility(View.VISIBLE);
         }
 
 
