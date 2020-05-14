@@ -14,6 +14,8 @@ import java.util.List;
 
 public class Adapter extends PagerAdapter {
 
+    public static int a=0; // 구분
+
     private List<Model> models;
     private LayoutInflater layoutInflater;
     private Context context;
@@ -39,7 +41,7 @@ public class Adapter extends PagerAdapter {
         layoutInflater = LayoutInflater.from(context);
         View view = layoutInflater.inflate(R.layout.item, container, false);
 
-        ImageView imageView;
+        final ImageView imageView;
         TextView title, desc;
 
         imageView = view.findViewById(R.id.image);
@@ -50,13 +52,37 @@ public class Adapter extends PagerAdapter {
         title.setText(models.get(position).getTitle());
         desc.setText(models.get(position).getDesc());
 
+///수정시작
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, DetailActivity.class);
-                intent.putExtra("param", models.get(position).getTitle());
-                context.startActivity(intent);
-                // finish();
+                if(position==0) {
+                    Intent intent = new Intent(context, DetailActivity.class);
+                    intent.putExtra("param", models.get(position).getTitle());
+                    a=0;
+
+                    context.startActivity(intent);
+
+                }
+                else if(position==1){
+                    Intent intent = new Intent(context, DetailActivity.class);
+                    intent.putExtra("param", models.get(position).getTitle());
+                    context.startActivity(intent);
+                    a=1;
+                }
+                else if(position==2){
+                    Intent intent = new Intent(context, DetailActivity.class);
+                    intent.putExtra("param", models.get(position).getTitle());
+                    context.startActivity(intent);
+                    a=2;
+                }
+                else if(position==3){
+                    Intent intent = new Intent(context, DetailActivity.class);
+                    intent.putExtra("param", models.get(position).getTitle());
+                    context.startActivity(intent);
+                    a=3;
+                }
+
             }
         });
 

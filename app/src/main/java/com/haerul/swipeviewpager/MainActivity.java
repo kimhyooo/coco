@@ -95,10 +95,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
 
         models = new ArrayList<>();
-        models.add(new Model(R.drawable.post_1, "예방수칙", "코로나-19를 예방하려면 어떻게 해야할까?"));
-        models.add(new Model(R.drawable.post_2, "Sticker", "Sticker is a type of label: a piece of printed paper, plastic, vinyl, or other material with pressure sensitive adhesive on one side"));
-        models.add(new Model(R.drawable.post_3, "자가진단", "간단한 자가진단을 해봅시다."));
-        models.add(new Model(R.drawable.post_4, "오늘의 코로나는", "Business cards are cards bearing business information about a company or individual."));
+        models.add(new Model(R.drawable.post_1, "행동수칙", "코로나-19를 예방하려면 어떻게 해야할까?"));
+        models.add(new Model(R.drawable.post_2, "예방수칙", "예방수칙과 관련된 내용"));
+        models.add(new Model(R.drawable.post_3, "자가진단", "자가진단 할 수 있도록 바로가기"));
+        models.add(new Model(R.drawable.post_4, "오늘의 코로나는", "오늘의 확진자"));
 
         adapter = new Adapter(models, this);
 
